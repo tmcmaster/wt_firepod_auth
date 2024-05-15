@@ -1,0 +1,39 @@
+name: wt_firepod_auth
+description: "A new Flutter package project."
+version: 0.0.1
+publish_to: 'none'
+homepage: https://github.com/tmcmaster/wt_firepod_auth
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  firebase_core: ^2.24.2
+  flutter:
+    sdk: flutter
+
+  flutter_riverpod: ^2.4.9
+  font_awesome_flutter: ^10.6.0
+  google_sign_in: ^6.2.0
+  wt_app_scaffold:
+    git:
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
+  wt_firepod:
+    git:
+      url: https://github.com/tmcmaster/wt_firepod.git
+  wt_logging:
+    git:
+      url: https://github.com/tmcmaster/wt_logging.git
+  wt_models:
+    git:
+      url: https://github.com/tmcmaster/wt_models.git
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+

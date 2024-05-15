@@ -1,0 +1,71 @@
+name: wt_firepod_auth_examples
+description: "Testing wt_firepod_auth"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+scripts:
+  init:
+    source: flutter pub get
+    launch: rps init icons; rps init splash
+    icons: flutter pub run flutter_launcher_icons
+    splash: dart run flutter_native_splash:create
+    flutterfire: flutterfire configure
+  clean: flutter clean
+  refresh: flutter clean; flutter pub get
+  test: flutter test
+  analise: flutter analyze
+  freezed:
+    build: dart run build_runner build --delete-conflicting-outputs
+    fix: dart pub add build_runner --dev
+    rebuild: rps freezed fix; rps freezed build
+  web:
+    build:
+      dev: flutter build web --profile --source-maps --no-tree-shake-icons
+      prod: flutter build web --release --source-maps --no-tree-shake-icons
+    serve: (cd build/web; python3 -m http.server 8000)
+    view: open http://localhost:8000/
+    deploy:
+      dev: firebase deploy --only hosting:dev
+      prod: firebase deploy --only hosting:prod
+  firebase:
+    console: open https://console.firebase.google.com/project/wt_app_scaffold/overview
+    site: open https://wt_app_scaffold.web.app
+    login: firebase login
+    login_force: firebase login --reauth
+    logout: firebase logout
+    serve: firebase serve --port 8000 --only hosting
+    deploy:
+      hosting:
+        staging: firebase hosting:channel:deploy staging
+        production: firebase deploy --only hosting
+      rules: firebase deploy --only database
+      functions: firebase deploy --only functions
+    emulate:
+      functions: firebase emulators:start --only functions
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.31.0
+  flutter_riverpod: ^2.4.9
+  url_strategy: ^0.2.0
+  wt_app_scaffold:
+    git:
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
+  wt_firepod:
+    git:
+      url: https://github.com/tmcmaster/wt_firepod.git
+  wt_firepod_auth:
+    path: ..
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
