@@ -47,12 +47,12 @@ scripts:
       functions: firebase emulators:start --only functions
 
 dependencies:
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 
   flutter:
     sdk: flutter
-  firebase_core: ^2.31.0
-  flutter_riverpod: ^2.4.9
-  url_strategy: ^0.2.0
+  firebase_core: 
+  flutter_riverpod: 
+  url_strategy: 
   wt_app_scaffold:
     git:
       url: https://github.com/tmcmaster/wt_app_scaffold.git
@@ -65,7 +65,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: 
 
 flutter:
   uses-material-design: true
